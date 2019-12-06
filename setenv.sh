@@ -86,6 +86,6 @@
   export ICARUSLIB=$dir/$icarus_dir/lib
 
   export CMAKE_PREFIX_PATH=$dir/$llvm_dir
-  export PATH=$dir/benchmarks/chipsc/bin
+  export PATH=$dir/benchmarks/chipsc/bin:"$PATH"
 #  export LLVM_DIR="$1"
 #fi
