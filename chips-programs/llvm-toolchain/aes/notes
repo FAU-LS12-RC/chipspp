@@ -1,0 +1,7 @@
+Changes:
+  * new main func
+  * comment out #include <memory.h> and #include <ctype.h>
+  * define stdio constants
+  * define ENDIANNESS in aes.h (big)
+  * rewrite rng to be big endian
+  * that's all

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+dir="$(dirname "$0")"
+
+withChipsScript="$dir"/../../../with-chips.sh
+declare -a cmd=(python "$dir"/../main.py "$@")
+[ -e "$withChipsScript" ] && cmd=("$withChipsScript" "${cmd[@]}")
+
+PYTHONPATH="$dir":"$PYTHONPATH" "${cmd[@]}"

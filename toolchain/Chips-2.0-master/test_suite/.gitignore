@@ -1,0 +1,12 @@
+*
+!.gitignore
+!test_stdlib
+!plot.py
+!test_include.c
+!test_all
+!test_api.py
+!test_compiler
+!test_components
+!test_include.c
+!test_stdlib
+!test_suite

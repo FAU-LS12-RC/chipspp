@@ -1,0 +1,5 @@
+Changes:
+  * I/O equals sign
+  * size_t
+  * remove const from const char -> otherwise: "Not a valid expression"
+  * instead of if(pointer) -> if(pointer != NULL)

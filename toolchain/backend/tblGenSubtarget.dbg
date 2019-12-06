@@ -1,0 +1,138 @@
++++ PROCESSOR MODELs (addProcModel) +++
+1: ChipsGenericModel ChipsGenericModel ChipsItineraries
+
++++ SCHED READS and WRITES (collectSchedRW) +++
+0:  
+1: ChipsWriteALU 
+2: ChipsWriteLoad 
+3: WriteALU 
+4: WriteLoad 
+0:  
+1: ChipsReadALU 
+2: ReadALU 
+Unused SchedReadWrite NoReadAdvance
+
++++ SCHED CLASSES (createInstRWClass) +++
+
++++ ITINERARIES and/or MACHINE MODELS (collectSchedClasses) +++
+No machine model for COPY
+Itinerary for ADJCALLSTACKDOWN: IIC_one_cycle
+Itinerary for ADJCALLSTACKUP: IIC_one_cycle
+Itinerary for Add: IIC_one_cycle
+SchedRW machine model for Add WriteALU ReadALU ReadALU
+Itinerary for AddWithCarry: IIC_one_cycle
+SchedRW machine model for AddWithCarry WriteALU ReadALU ReadALU
+Itinerary for Addl: IIC_one_cycle
+Itinerary for And: IIC_one_cycle
+SchedRW machine model for And WriteALU ReadALU ReadALU
+Itinerary for CALL: IIC_one_cycle
+Itinerary for DoubleAdd: IIC_one_cycle
+Itinerary for DoubleSub: IIC_one_cycle
+Itinerary for DoubleToFloat: IIC_one_cycle
+Itinerary for DoubleToLong: IIC_one_cycle
+Itinerary for EqualFp: IIC_one_cycle
+Itinerary for EqualInt: IIC_one_cycle
+Itinerary for FloatAdd: IIC_one_cycle
+Itinerary for FloatDivide: IIC_one_cycle
+Itinerary for FloatMultiply: IIC_one_cycle
+Itinerary for FloatSubtract: IIC_one_cycle
+Itinerary for FloatToDouble: IIC_one_cycle
+Itinerary for FloatToInt: IIC_one_cycle
+Itinerary for FpSelect: IIC_one_cycle
+Itinerary for Goto: IIC_one_cycle
+Itinerary for GreaterEqualFp: IIC_one_cycle
+Itinerary for GreaterEqualInt: IIC_one_cycle
+Itinerary for GreaterFp: IIC_one_cycle
+Itinerary for GreaterInt: IIC_one_cycle
+Itinerary for IntToFloat: IIC_one_cycle
+Itinerary for JmpIfTrue: IIC_one_cycle
+Itinerary for LeaPseudo: IIC_one_cycle
+Itinerary for Load16Disp: IIC_one_cycle
+SchedRW machine model for Load16Disp WriteLoad ReadALU
+Itinerary for Load16Signed: IIC_one_cycle
+SchedRW machine model for Load16Signed WriteLoad ReadALU
+Itinerary for Load8Disp: IIC_one_cycle
+SchedRW machine model for Load8Disp WriteLoad ReadALU
+Itinerary for Load8Signed: IIC_one_cycle
+SchedRW machine model for Load8Signed WriteLoad ReadALU
+Itinerary for LoadDisp: IIC_one_cycle
+SchedRW machine model for LoadDisp WriteLoad ReadALU
+Itinerary for LongToDouble: IIC_one_cycle
+Itinerary for Modulo: IIC_one_cycle
+SchedRW machine model for Modulo WriteALU ReadALU ReadALU
+Itinerary for MovAHiIn: IIC_one_cycle
+Itinerary for MovAHiOut: IIC_one_cycle
+Itinerary for MovALoIn: IIC_one_cycle
+Itinerary for MovALoOut: IIC_one_cycle
+Itinerary for MovBHiIn: IIC_one_cycle
+Itinerary for MovBHiOut: IIC_one_cycle
+Itinerary for MovBLoIn: IIC_one_cycle
+Itinerary for MovBLoOut: IIC_one_cycle
+Itinerary for Movl: IIC_one_cycle
+Itinerary for MulHiUnsigned: IIC_one_cycle
+Itinerary for Multiply: IIC_one_cycle
+SchedRW machine model for Multiply WriteALU ReadALU ReadALU
+Itinerary for NotEqualFp: IIC_one_cycle
+Itinerary for NotEqualInt: IIC_one_cycle
+Itinerary for Or: IIC_one_cycle
+SchedRW machine model for Or WriteALU ReadALU ReadALU
+Itinerary for Return: IIC_one_cycle
+Itinerary for Select: IIC_one_cycle
+Itinerary for ShiftLeft: IIC_one_cycle
+Itinerary for ShiftRight: IIC_one_cycle
+SchedRW machine model for ShiftRight WriteALU ReadALU ReadALU
+Itinerary for Stop: IIC_one_cycle
+Itinerary for Store: IIC_one_cycle
+Itinerary for Store16: IIC_one_cycle
+Itinerary for Store8: IIC_one_cycle
+Itinerary for Subtract: IIC_one_cycle
+SchedRW machine model for Subtract WriteALU ReadALU ReadALU
+Itinerary for UnsignedGreaterEqualFp: IIC_one_cycle
+Itinerary for UnsignedGreaterEqualInt: IIC_one_cycle
+Itinerary for UnsignedGreaterFp: IIC_one_cycle
+Itinerary for UnsignedGreaterInt: IIC_one_cycle
+Itinerary for UnsignedModulo: IIC_one_cycle
+SchedRW machine model for UnsignedModulo WriteALU ReadALU ReadALU
+Itinerary for UnsignedShiftRight: IIC_one_cycle
+SchedRW machine model for UnsignedShiftRight WriteALU ReadALU ReadALU
+Itinerary for Xor: IIC_one_cycle
+SchedRW machine model for Xor WriteALU ReadALU ReadALU
+
++++ PROBLEM ITINERARIES (collectProcItins) +++
+ChipsItineraries missing class for itinerary IIC_two_cycle
+
++++ INFERRING SCHED CLASSES (inferSchedClasses) +++
+4 instr sched classes.
+INFER RW proc(0, ) (3, )  Reads: (2, ) (2, ) 
+INFER RW proc(0, ) (4, )  Reads: (2, ) 
+
++++ RESOURCE DEFINITIONS (collectProcResources) +++
+0: NoSchedModel NoSchedModel NoItineraries
+WriteResDefs: 
+ReadAdvanceDefs: 
+ProcResourceDefs: 
+1: ChipsGenericModel ChipsGenericModel ChipsItineraries
+WriteResDefs: ChipsWriteALU ChipsWriteLoad 
+ReadAdvanceDefs: ChipsReadALU 
+ProcResourceDefs: ALU LoadStore 
+
++++ SCHED CLASSES (GenSchedClassTables) +++
+SCHEDCLASS 0:NoInstrModel
+  Writes: 
+  Reads: 
+  ProcIdx: 0, 
+ChipsGenericModel does not have resources for class NoInstrModel
+SCHEDCLASS 1:IIC_one_cycle
+  Writes: 
+  Reads: 
+  ProcIdx: 0, 
+ChipsGenericModel does not have resources for class IIC_one_cycle
+SCHEDCLASS 2:IIC_one_cycle_WriteALU_ReadALU_ReadALU
+  Writes: WriteALU 
+  Reads: ReadALU 
+          ReadALU 
+  ProcIdx: 0, 
+SCHEDCLASS 3:IIC_one_cycle_WriteLoad_ReadALU
+  Writes: WriteLoad 
+  Reads: ReadALU 
+  ProcIdx: 0, 

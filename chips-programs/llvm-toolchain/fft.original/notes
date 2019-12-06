@@ -1,0 +1,4 @@
+Only changes:
+  * comment out init and terminate functions in fft.c
+  * write main function and I/O port definitions instead
+  * #include fft_data.c

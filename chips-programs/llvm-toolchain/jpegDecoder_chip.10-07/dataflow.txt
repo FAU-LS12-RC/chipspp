@@ -1,0 +1,16 @@
+mdl_colorspaceconv_7_hw/outputArg1->extern
+out_port_dimension=[8  8  3]
+extern->mdl_img_splitter_69_hw/inputArg1
+in_port_dimension=[15   1   3]
+mdl_img_splitter_69_hw/outputArg1->mdl_rlc_decoder_inv_zrl_219_hw/inputArg1
+mdl_img_splitter_69_hw/outputArg2->mdl_rlc_decoder_inv_zrl1_236_hw/inputArg1
+mdl_img_splitter_69_hw/outputArg3->mdl_rlc_decoder_inv_zrl2_253_hw/inputArg1
+mdl_inv_quant_idct_96_hw/outputArg1->mdl_colorspaceconv_7_hw/inputArg1
+mdl_inv_quant_idct1_129_hw/outputArg1->mdl_colorspaceconv_7_hw/inputArg2
+mdl_inv_quant_idct2_162_hw/outputArg1->mdl_colorspaceconv_7_hw/inputArg3
+mdl_inv_zigzag_195_hw/outputArg1->mdl_inv_quant_idct_96_hw/inputArg1
+mdl_inv_zigzag1_203_hw/outputArg1->mdl_inv_quant_idct1_129_hw/inputArg1
+mdl_inv_zigzag2_211_hw/outputArg1->mdl_inv_quant_idct2_162_hw/inputArg1
+mdl_rlc_decoder_inv_zrl_219_hw/outputArg1->mdl_inv_zigzag_195_hw/inputArg1
+mdl_rlc_decoder_inv_zrl1_236_hw/outputArg1->mdl_inv_zigzag1_203_hw/inputArg1
+mdl_rlc_decoder_inv_zrl2_253_hw/outputArg1->mdl_inv_zigzag2_211_hw/inputArg1

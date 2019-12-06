@@ -1,0 +1,11 @@
+Changes:
+  1. run scripts
+    $ python ../../../benchmarks/merge-c-files.py . mdl_inv_quant_idct1_126_hw.cpp | bash ../../../benchmarks/rewrite-c-for-chips.sh >idct_py.cpp
+  2. Comment out typedef void * pointer_T;
+  3. Comment out the two enums.
+  4. Comment out everything with extern "C" around.
+  5. Remove extern
+  6. Unwrap the twiddle table into a int16_T[8] (also modify all accesses)
+  7. Remove static bool init and code dependent on that.
+  8. Insert equals signs for I/O definitions.
+  9. Remove declarations inside for loop headers.
