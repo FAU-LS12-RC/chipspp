@@ -21,20 +21,6 @@ from collections import namedtuple
 two_cycle_instrs = ["load", "load_disp", "load8", "load16", "multiply",
         "shift_left", "shift_right", "unsigned_shift_right"]
 
-class Feature:
-    def __init__(self, states, signals_code, stage2_code, stage3_code):
-        pass
-
-IntMultiplier = Feature(
-        ["ex2_stalled"],
-        r"""
-            reg [31:0] products[3:0];
-            reg [1:0] multiply_step;
-            reg [47:0] sums[2:0];
-        """, indent=2)
-
-        #TODO is feature in? func?
-
 
 def log2(instructions):
     """Integer only algorithm to calculate the number of bits needed to store a number"""
