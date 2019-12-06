@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 dir="$(dirname "$0")"
-llc=$SCR/llvm-6-install/bin/llc
-#llc=llc
+#llc=$SCR/llvm-6-install/bin/llc
+llc=llc
 
 miSched=(-enable-misched -misched-postra)
 
