@@ -7,7 +7,7 @@ fi
 
 git clone https://github.com/llvm/llvm-project.git llvm-src
 cd llvm-project
-git checkout llvmorg-6.0.1
+git checkout llvmorg-6.0.0
 cd llvm
 mkdir build
 cd build
