@@ -146,9 +146,9 @@ struct ChipsRegisterInfo : public ChipsGenRegisterInfo {
     return &Chips::IntRegsRegClass;
   }
 
-  bool enableMultipleCopyHints() const override {
-    return true;
-  }
+//  bool enableMultipleCopyHints() const override {
+//    return true;
+//  }
 
   void eliminateFrameIndex(MachineBasicBlock::iterator instrs,
       int SPAdj, unsigned FIOperandNum,

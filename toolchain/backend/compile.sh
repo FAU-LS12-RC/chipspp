@@ -2,7 +2,10 @@
 
 dir="$(dirname "$0")"
 #llc=$SCR/llvm-6-install/bin/llc
+#llc=/usr/bin/llc
 llc=llc
+#llc=$SCR/chips++/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/llc
+#llc=$SCR/llvm-install-2/bin/llc
 
 miSched=(-enable-misched -misched-postra)
 

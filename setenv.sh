@@ -2,6 +2,7 @@
 #  echo "Usage: ./$0 <llvm-installation-folder>" >&2
 #else
   llvm="clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz"
+  #llvm='clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz'
   if command -v lsb_release; then
       if [[ "$(lsb_release -a)" = *"14.04"* ]]; then
           llvm="clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz"
@@ -9,7 +10,8 @@
   fi
   cmake="cmake-3.11.4-Linux-x86_64.tar.gz"
 
-  llvm_dir="${llvm%.*.*}"
+  #llvm_dir="${llvm%.*.*}"
+  llvm_dir=llvm-install
   cmake_dir="${cmake%.*.*}"
   icarus_dir=iverilog
 
@@ -22,8 +24,10 @@
   cd $dir
 
   if [ ! -d "$llvm_dir" ]; then
-      echo "Fetching $llvm"
-      wget http://releases.llvm.org/6.0.0/$llvm && tar -xf "$llvm" && rm $llvm
+      echo "Fetching and building $llvm"
+      bash install-llvm.sh "$llvm_dir"
+#      wget http://releases.llvm.org/6.0.0/$llvm && tar -xf "$llvm" && rm $llvm
+#      wget http://releases.llvm.org/8.0.0/$llvm && tar -xf "$llvm" && rm $llvm
   else
       echo "llvm found"
   fi
@@ -67,6 +71,7 @@
       echo "cmake already loaded"
   else
       export PATH=$dir/$cmake_dir/bin:$PATH
+      export CMAKE_PREFIX_PATH=$dir/$llvm_dir
       echo "cmake loaded"
   fi
 
@@ -85,7 +90,6 @@
   fi
   export ICARUSLIB=$dir/$icarus_dir/lib
 
-  export CMAKE_PREFIX_PATH=$dir/$llvm_dir
   export PATH=$dir/benchmarks/chipsc/bin:"$PATH"
 #  export LLVM_DIR="$1"
 #fi

@@ -176,13 +176,13 @@ public:
       if(global.getName().find("llvm.") == 0)
         continue;
       //To prevent an error message with internal linkage globals
-      global.setDSOLocal(true);
+//      global.setDSOLocal(true);
       globalValues.push_back(&global);
     }
     for(Function& func : module.functions()) {
       if(&func == mainFunc)
         continue;
-      func.setDSOLocal(true);
+//      func.setDSOLocal(true);
       globalValues.push_back(&func);
     }
 
@@ -274,60 +274,13 @@ public:
 char ChipsOpt::ID = 0;
 }
 
+struct Test {
+  Test() {
+  }
+};
+
+Test x;
+
 static RegisterPass<ChipsOpt> X("chipsopt",
     "Chips optimization and analysis pass",
     /*CFGOnly=*/false, /*is_analysis=*/false);
-
-//    json_out << R"("target_triple": ")" << module.getTargetTriple() << "\"";
-//    json_out << R"(, "data_layout": ")" <<
-//      module.getDataLayout().getStringRepresentation() << "\"";
-
-//    for(GlobalVariable& global : module.globals()) {
-//      errs() << "Global: " << 
-//        global.getName() << ", " << 
-//        global.isDeclaration() << ", " <<
-//        global.isConstant() << ", " <<
-//        global.getType()->isPointerTy() << ", " <<
-//        global.getType()->getPointerElementType()->isArrayTy() << ", " <<
-//        global.getType()->getPointerElementType()->getArrayNumElements() << ", " <<
-//        global.getInitializer() << ", " <<
-//        "\n";
-//    }
-
-//    for(Function& func : module.functions()) {
-//      //BasicBlock& entry = getEntryBlock()
-//      errs() << "func: ";
-//      Type* return_type = func.getReturnType();
-//      return_type->print(errs(), true);
-//      errs() << " " << func.getName() << "(";
-//      for(Argument& arg : func.args()) {
-//        //arg.print(errs(), true);
-//        Type* type = arg.getType();
-//        //StringRef name = arg.getName();
-//        type->print(errs(), true);
-//        errs() << " %" << arg.getArgNo();
-//        errs() << ", ";
-//      }
-//      errs() << ")\n";
-//      //func.viewCFG();
-//
-//      //for(Phi ... : entry->phis())
-//      //for(Instruction& i : entry)
-//      //TODO use inst_iterator to iterate over the function's instructions
-//    }
-
-//        global.getInitializer()->getAggregateElement(0u)->getAggregateElement(0u)->print(errs(), true);
-//        errs() << "\n";
-//        //global.getInitializer()->getAggregateElement(0u)->getAggregateElement(1u)->stripPointerCasts()->print(errs(), true);
-//        errs() << "
-//        ((GlobalVariable*)global.getInitializer()->getAggregateElement(0u)->getAggregateElement(1u)->stripPointerCasts())->getInitializer()->print(errs(), true);
-//        errs() << "\n";
-//        GlobalVariable* annotate_string = static_cast<GlobalVariable*>(global.getInitializer()->getAggregateElement(0u)->getAggregateElement(1u)->stripPointerCasts());
-//        errs() << annotate_string->getInitializer()->getAggregateElement(0u) << "\n";
-//
-//        errs() << "\n";
-//        errs() << "  annotations: " <<
-//          global.getInitializer()->getName() << ", " <<
-//          global.getInitializer()->getNumOperands() << ", " <<
-//          global.getInitializer()->getAggregateElement(0u)->getAggregateElement(0u)->getOperand(0) << ", " <<
-//          "\n";
