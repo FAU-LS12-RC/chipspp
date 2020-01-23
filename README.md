@@ -1,8 +1,26 @@
+Chips++ is a C/C++-to-Verilog design flow for generating FPGA-targeting CPUs with an application-specific instruction set.
+What kind of restricted instruction set is used wholly depends on the input program written in C/C++.
+A custom compiler then analyzes this program and instructs the processor generator to change bits of the CPU architecture accordingly.
+This is useful if you want to place existing or generated C/C++ code within hardware designs but do not want to bear the increased hardware cost or restricted performance of traditional soft-core processors.
+
+A more comprehensive description of this method can be found in the paper [1] which has been presented at the [2019 International Conference on ReConFigurable Computing and FPGAs (ReConFig)](http://www.reconfig.org/).
+If you want to reference our work, please cite the paper as follows:
+```
+@inproceedings{plagwitz2019compiler,
+  title={Compiler-Based High-Level Synthesis of Application-Specific Processors on FPGAs},
+  author = {Plagwitz, Patrick and Streit, Franz-Josef and Becher, Andreas and Wildermann, Stefan and Teich, Jürgen},
+  booktitle = {2019 International Conference on ReConFigurable Computing and FPGAs (ReConFig)},
+  pages={1--8},
+  year={2019},
+  organization={IEEE}
+}
+
 Installation
 ====================
 Dependencies
 ---------------
 Make sure you have clang/clang++ in your PATH.
+Also, Python 2 is required for the Python library.
 All other required libraries will be downloaded automatically during the next steps.
 
 Procedure
@@ -58,7 +76,7 @@ $ ./run.sh
 
 Usage
 ===================
-`chipsc` is the Chips++ compiler that can map C/C++ code to Verilog.
+`chipsc` is the Chips++ compiler that can map **C/C++** code to **Verilog**.
 After sourcing the `setenv.sh`, this binary should be in your PATH.
 
 `int_adder`
@@ -67,7 +85,7 @@ After sourcing the `setenv.sh`, this binary should be in your PATH.
 You can try it out with the simple `int_adder` program shown in the paper [1].
 First, write the code to a file:
 ```bash
-cat >main.c <<EOF
+$ cat >main.c <<EOF
 int input_1 input("input_1");
 int input_2 input("input_2");
 int output_1 output("output_1");
@@ -77,6 +95,7 @@ void main() {
   }
 }
 EOF
+
 ```
 
 Then, run `chipsc` on it:

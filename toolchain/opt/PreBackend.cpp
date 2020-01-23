@@ -212,66 +212,6 @@ public:
         var->eraseFromParent();
     }
 
-    //errs() << "done erasing\n";
-    
-    //module.dump();
-    //mainFunc->viewCFG();
-    //module.print(errs(), true);
-
-//    std::vector<GlobalVariable*> toRemove;
-//    for(GlobalVariable& global : module.globals()) {
-//      if(global.getName() != std::string("llvm.global.annotations"))
-//        continue;
-//      global.dropAllReferences();
-//      toRemove.push_back(&global);
-//    }
-//    for(GlobalVariable* var : toRemove) {
-//      errs() << "removing " << var->getName() << "\n";
-//      var->eraseFromParent();
-//    }
-//
-//    std::vector<Function*> funcsToRemove;
-//    for(Function& func : module.functions()) {
-//      if(func.getName() == "fgets") {
-//        errs() << "fgets: " << func.getNumUses() << "\n";
-//        errs() << "use: ";
-//        func.user_begin()->print(errs());
-//        errs() << "\n";
-//        errs() << "use is same: " << (func.use_begin()->getUser() == &dynamic_cast<User&>(func)) << "\n";
-//      }
-//      if(!func.use_empty() || func.getName() == "main")
-//        continue;
-//      funcsToRemove.push_back(&func);
-//    }
-//    for(Function* func : funcsToRemove) {
-//      errs() << "removing " << func->getName() << "\n";
-//      func->eraseFromParent();
-//    }
-//
-//    std::vector<GlobalVariable*> globalsToRemove;
-//    for(GlobalVariable& global : module.globals()) {
-////      errs() << "checking " << global.getName() << "\n";
-////      if(!global.hasOneUse()) {
-////        errs() << "uses of ";
-////        global.print(errs());
-////        errs() << ":\n";
-////        for(Use const& use : global.uses()) {
-////          use->print(errs());
-////          errs() << "\n";
-////        }
-////      }
-//      //A value always uses itself
-//      if(!global.hasOneUse() || global.getName().find("llvm.") == 0)
-//        continue;
-//      globalsToRemove.push_back(&global);
-//    }
-//    for(GlobalVariable* global : globalsToRemove) {
-//      errs() << "removing " << global->getName() << "\n";
-//      global->eraseFromParent();
-//    }
-
-    //TODO maybe run optimization passes explicitly (-simplifycfg)
-    //see https://llvm.org/docs/Passes.html
     return false;
   }
 };
