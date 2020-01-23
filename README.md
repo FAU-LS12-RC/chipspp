@@ -67,7 +67,7 @@ After sourcing the `setenv.sh`, this binary should be in your PATH.
 You can try it out with the simple `int_adder` program shown in the paper [1].
 First, write the code to a file:
 ```bash
-cat >code.c <<<EOF
+cat >main.c <<EOF
 int input_1 input("input_1");
 int input_2 input("input_2");
 int output_1 output("output_1");
@@ -81,16 +81,29 @@ EOF
 
 Then, run `chipsc` on it:
 ```bash
-$ chipsc code.c -O0 -o out
+$ chipsc main.c -O0 -o out
 ```
 
 The folder `out` will now contain the generated RTL code as well as some intermediate code.
+All the `*.v` files inside `out/src` will be the hardware design.
 
+Run `chipsc` with the `--help` option to see other ways of using it.
+For instance, you can automatically make a Vivado project and implement the design with
+```bash
+$ mkdir impl-results
+$ chipsc main.c --make-project --impl impl-results/ main.c -o out
+```
+This requires that you have Vivado installed.
+The designs were tested with Vivado 2018.3.
 
-Check out the file ...
-* network
-* ...
+More programs to test are in the `chips-programs/llvm-toolchain` folder.
+Also check out the script under `benchmarks/recompile-all.sh` which has many commented out lines generating designs with varying configurations.
+This will also show you how to configure generation of networks with `chipsc`.
+
+License
+================
+See LICENSE.
 
 References
 =================
-[1]
+[1] Plagwitz, Streit, Becher, Wildermann, Teich: Compiler-Based High-Level Synthesis of Application-Specific Processors on FPGAs
