@@ -1,5 +1,12 @@
 Installation
 ====================
+Dependencies
+---------------
+Make sure you have clang/clang++ in your PATH.
+All other required libraries will be downloaded automatically during the next steps.
+
+Procedure
+------------
 Chips++ can be run from the source directory but a few build steps are required.
 First, set up all dependencies by calling
 ```bash
@@ -26,7 +33,7 @@ $ cmake .
 $ make
 ```
 
-Then, change back to the root folder, then to the backend folder which is the second part of the compiler toolchain.
+Then, change back to the root folder, then to the backend folder, which is the second part of the compiler toolchain.
 ```bash
 $ cd ../..
 $ cd toolchain/backend
@@ -44,11 +51,10 @@ $ ./run.sh EndToEndTest.test_int_adder
 ```
 
 This will test a very simple 32-bit integer adder.
-If this works, you can run all enabled tests with
+If it works, you can run all enabled tests with
 ```bash
 $ ./run.sh
 ```
-.
 
 Usage
 ===================

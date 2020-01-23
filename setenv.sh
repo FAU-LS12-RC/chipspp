@@ -10,8 +10,11 @@
   fi
   cmake="cmake-3.11.4-Linux-x86_64.tar.gz"
 
+  dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+  oldd="$(pwd)"
+
   #llvm_dir="${llvm%.*.*}"
-  llvm_dir=llvm-install
+  llvm_dir="$dir"/llvm-install
   cmake_dir="${cmake%.*.*}"
   icarus_dir=iverilog
 
@@ -19,8 +22,6 @@
   echo "cmake_dir = $cmake_dir"
   echo "icarus_dir = $icarus_dir"
 
-  dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-  oldd="$(pwd)"
   cd $dir
 
   if [ ! -d "$llvm_dir" ]; then
@@ -71,7 +72,6 @@
       echo "cmake already loaded"
   else
       export PATH=$dir/$cmake_dir/bin:$PATH
-      export CMAKE_PREFIX_PATH=$dir/$llvm_dir
       echo "cmake loaded"
   fi
 
@@ -79,6 +79,7 @@
       echo "llvm already loaded"
   else
       export PATH=$dir/$llvm_dir/bin:$PATH
+      export CMAKE_PREFIX_PATH=$llvm_dir
       echo "llvm loaded"
   fi
 

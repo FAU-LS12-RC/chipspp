@@ -189,7 +189,11 @@ public:
     std::vector<Value*> toRemove;
     for(Value* value : globalValues) {
       if(!isUsedBy(value, mainFunc)) {
-        //value->dropAllReferences();
+        Function* func = dyn_cast<Function>(value);
+        if(func)
+          func->dropAllReferences();
+        for(User* user : value->users())
+          user->dropAllReferences();
         toRemove.push_back(value);
       }
     }
@@ -201,7 +205,7 @@ public:
     for(Value* value : toRemove) {
       Function* func = dyn_cast<Function>(value);
       GlobalVariable* var = dyn_cast<GlobalVariable>(value);
-      //errs() << "removing " << value->getName() << "\n";
+//      errs() << "removing " << value->getName() << "\n";
       if(func)
         func->eraseFromParent();
       else if(var)
