@@ -3,6 +3,8 @@ What kind of restricted instruction set is used wholly depends on the input prog
 A custom compiler then analyzes this program and instructs the processor generator to change bits of the CPU architecture accordingly.
 This is useful if you want to place existing or generated C/C++ code within hardware designs but do not want to bear the increased hardware cost or restricted performance of traditional soft-core processors.
 
+The Python part of Chips++ is based on the [Chips project](https://github.com/dawsonjon/Chips-2.0) by Jonathan P. Dawson.
+
 A more comprehensive description of this method can be found in the paper [1] which has been presented at the [2019 International Conference on ReConFigurable Computing and FPGAs (ReConFig)](http://www.reconfig.org/).
 If you want to reference our work, please cite the paper as follows:
 ```
